@@ -1,0 +1,38 @@
+def f(x):
+    return x**3 - 50*x
+
+def g(x):
+    return -x**4 + 88*x**2 - 241
+import numpy as np
+
+def h(x):
+    return f(x) - g(x)
+
+roots = np.roots([1, 0, -50, 0, 241, -88])
+print(roots)
+import matplotlib.pyplot as plt
+
+x = np.linspace(-5, 8, 1000)
+
+y_f = f(x)
+y_g = g(x)
+
+plt.plot(x, y_f, label='f(x)')
+plt.plot(x, y_g, label='g(x)')
+
+
+plt.legend()
+plt.grid()
+plt.show()
+
+def h(x):
+    return f(x) - g(x)
+
+y_h = h(x)
+
+plt.plot(x, y_h, label='h(x)')
+plt.plot(roots, np.zeros(len(roots)), 'ro', label='roots')
+
+plt.legend()
+plt.grid()
+plt.show()
